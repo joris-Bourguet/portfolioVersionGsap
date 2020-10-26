@@ -9,19 +9,21 @@ menuTl.to(".one", 0.8, {
     rotation: 45,
     ease: "power4.in",
     width: "60%",
-    left: "8px"
+    left: "8px",
+    BackgroundColor: "#0a004b"
 });
 
-menuTl.to(".two", 0.8, {
+menuTl.to(".two", .8, {
     y: -6,
     rotation: -45,
     ease: "power4.in",
     delay: -0.8,
     width: "60%",
-    left: "8px"
+    left: "8px",
+    backgroundColor: "#0a004b"
 });
 
-menuTl.fromTo(".menu", 1, {
+menuTl.fromTo(".menu", .8, {
     top: "-100%",
 
 }, {
@@ -29,11 +31,11 @@ menuTl.fromTo(".menu", 1, {
     ease: "power4.in"
 }, "-=.5");
 
-menuTl.staggerFrom(".menu ul li", 1, {
+menuTl.staggerFrom(".menu ul li", .8, {
     x: -200,
     opacity: 0,
     ease: "back.out(1)"
-}, 0.3);
+}, 0.2);
 
 menuTl.reverse();
 
@@ -41,8 +43,9 @@ $(toggleBtn).on("click", function() {
     menuTl.reversed(!menuTl.reversed());
     one.classList.toggle('toggle')
     two.classList.toggle('toggle')
-    console.log("test");
 });
 $(document).on("click", "a", function() {
     menuTl.reversed(!menuTl.reversed());
+    one.classList.toggle('toggle')
+    two.classList.toggle('toggle')
 });

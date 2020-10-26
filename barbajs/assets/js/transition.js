@@ -5,7 +5,7 @@
 //         scaleY: 1,
 //         transformOrigin: "bottom left",
 //         stagger: .2
-//     }, "+=2.5");
+//     }, "-=1");
 //     return tl
 // }
 
@@ -16,7 +16,7 @@
 //         scaleY: 0,
 //         transformOrigin: "bottom left",
 //         stagger: .2
-//     }, "+=.2");
+//     });
 //     return tl;
 // }
 
@@ -34,9 +34,9 @@ const bouncyCircle = new mojs.Shape({
 
 const onOnce = (container) => {
     var tl = gsap.timeline();
-    tl.to({
-        duration: 1.5,
-        opacity: 0
+    tl.to('.loader', {
+        delay: 4,
+        y: '-100vh',
     })
     bouncyCircle.play()
     return tl;
@@ -45,9 +45,10 @@ const onOnce = (container) => {
 
 barba.init({
     transitions: [{
-        once({ next }) {
-            onOnce(next.container);
-        },
+        // once({ next }) {
+        //     console.log("entering");
+        //     onOnce(next.container);
+        // },
         // leave: ({ current }) => onLeaving(current.container),
         // enter({ next }) {
         //     console.log(onEnter(next.container));

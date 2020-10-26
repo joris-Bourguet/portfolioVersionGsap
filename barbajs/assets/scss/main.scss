@@ -53,15 +53,19 @@ body {
     padding: 0;
 }
 
-// .loader {
-//     height: 100vh;
+// Landing Page pb avec contenu supp à taille ecran impossible overflow hidden
+// #onOnce {
 //     position: absolute;
 //     top: 0;
-//     bottom: 0;
-//     right: 0;
 //     left: 0;
+//     height: 100vh;
+//     width: 100%;
 //     background-color: #111111;
-//     z-index: 1000;
+//     z-index: 999;
+//     overflow: hidden;
+// }
+// .content {
+//     height: 1000px;
 // }
 ul.transition {
     display: flex;
@@ -101,16 +105,16 @@ ul.transition {
     }
     .one {
         position: absolute;
-        &.toggle {
-            background-color: $color-secondary;
-        }
+        // &.toggle {
+        //     background-color: $color-secondary;
+        // }
     }
     .two {
         position: absolute;
         margin-top: 12px;
-        &.toggle {
-            background-color: $color-secondary;
-        }
+        // &.toggle {
+        //     background-color: $color-secondary;
+        // }
     }
 }
 
@@ -138,6 +142,9 @@ ul.transition {
             a {
                 color: $color-secondary;
                 text-decoration: none;
+                &:hover {
+                    color: $color-secondary-dark;
+                }
             }
         }
     }

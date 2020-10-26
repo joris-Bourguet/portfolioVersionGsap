@@ -86,17 +86,9 @@ ul.transition li {
   position: absolute;
 }
 
-.toggle-btn .one.toggle {
-  background-color: #ff4f4f;
-}
-
 .toggle-btn .two {
   position: absolute;
   margin-top: 12px;
-}
-
-.toggle-btn .two.toggle {
-  background-color: #ff4f4f;
 }
 
 .menu {
@@ -131,4 +123,8 @@ ul.transition li {
 .menu .data ul a {
   color: #ff4f4f;
   text-decoration: none;
+}
+
+.menu .data ul a:hover {
+  color: #c50426;
 }
