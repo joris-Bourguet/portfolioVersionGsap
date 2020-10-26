@@ -43,13 +43,12 @@ $color-secondary-dark:#c50426;
 */
 
 * {
-    box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: $font-primary;
 }
 
-body,
-html {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -78,112 +77,67 @@ ul.transition {
     list-style: none;
     li {
         transform: scaleY(0);
-        background-color: $color-primary;
+        background-color: $color-primary-dark;
         width: calc(100% / 6);
     }
 }
 
-#header {
-    nav {
-        z-index: 999;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        .logo {
-            margin: 0 0 0 2rem;
+.toggle-btn {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 30px;
+    top: 60px;
+    right: 80px;
+    z-index: 200;
+    cursor: pointer;
+    span {
+        display: block;
+        position: absolute;
+        height: 4px;
+        transition: width .4s ease-in-out;
+        width: 100%;
+        background-color: $color-primary-dark;
+    }
+    .one {
+        position: absolute;
+        &.toggle {
+            background-color: $color-secondary;
         }
-        a {
-            text-decoration: none;
-            font-size: 2rem;
-            color: #111111;
+    }
+    .two {
+        position: absolute;
+        margin-top: 12px;
+        &.toggle {
+            background-color: $color-secondary;
         }
+    }
+}
+
+.menu {
+    z-index: 0;
+    position: absolute;
+    background-color: $color-primary;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    .data {
+        padding: 8em 0 0 2em;
+        text-align: left;
         ul {
-            margin: 0;
-            padding: 0;
-        }
-        .menu-btn {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 1.5rem;
-            height: 1.5rem;
-            margin: 0 2rem 0 0;
-            cursor: pointer;
-            z-index: 1;
-            &__lines,
-            &__lines::before,
-            &__lines::after {
-                width: 1.5rem;
-                height: 0.1rem;
-                background-color: #111111;
-                transition: all 0.5s ease-in-out;
-            }
-            &__lines::before,
-            &__lines::after {
-                content: '';
-                position: absolute;
-            }
-            &__lines::before {
-                transform: translateY(-0.5rem);
-                width: 80%;
-            }
-            &__lines::after {
-                transform: translateY(0.5rem);
-                width: 60%;
-            }
-            &.open .menu-btn__lines {
-                transform: translateX(2rem);
-                background-color: transparent;
-                width: 100%;
-            }
-            &.open .menu-btn__lines::before {
-                transform: rotate(45deg) translate(-1.5rem, 1.5rem);
-                width: 100%;
-                background-color: #fff;
-            }
-            &.open .menu-btn__lines::after {
-                transform: rotate(-45deg) translate(-1.5rem, -1.5rem);
-                width: 100%;
-                background-color: #fff;
-            }
-        }
-        .menu-items {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 100vh;
-            background-color: $color-secondary-dark;
             list-style: none;
-            transform: translateX(100vw);
-            transition: transform 0.3s ease-in-out;
-            &.open {
-                transform: translateX(0);
+            li:first-child {
+                color: $color-secondary-dark;
+                font-family: $font-secondary;
+                font-size: 2rem;
             }
-            li {
-                width: 100vw;
-                height: 100%;
+            li:not(:first-child) {
+                color: $color-secondary;
+                font-size: 4rem;
             }
-            li a {
-                color: #fff;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-            }
-            li a:hover {
-                background-color: #ff4f4f;
-                color: $color-primary-dark;
+            a {
+                color: $color-secondary;
+                text-decoration: none;
             }
         }
     }

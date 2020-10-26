@@ -1,30 +1,44 @@
-const menuBtn = document.querySelector('.menu-btn')
-const menuitems = document.querySelector('.menu-items')
-const menuItem = document.querySelectorAll('.menu-item')
-const header = document.querySelector('#header')
-const navTop = document.querySelector('#header nav')
+const toggleBtn = document.querySelector('.toggle-btn')
+const one = document.querySelector('.one')
+const two = document.querySelector('.two')
 
+var menuTl = gsap.timeline()
 
-// rajouter au fur et à mesure si des éléments se rajoute au header 
+menuTl.to(".one", 0.8, {
+    y: 6,
+    rotation: 45,
+    ease: "power4.in"
+});
 
-headerSize = navTop.clientHeight;
-$(header).css('height', headerSize);
+menuTl.to(".two", 0.8, {
+    y: -6,
+    rotation: -45,
+    ease: "power4.in",
+    delay: -0.8
+});
 
+menuTl.fromTo(".menu", 1, {
+    top: "-100%",
 
-menuBtn.addEventListener('click', () => {
-    toggle();
-})
+}, {
+    top: "0%",
+    ease: "power4.in"
+}, "-=.5");
 
+menuTl.staggerFrom(".menu ul li", 1, {
+    x: -200,
+    opacity: 0,
+    ease: "back.out(1)"
+}, 0.3);
 
-menuItem.forEach(item => {
-    item.addEventListener('click', () => {
-        if (menuBtn.classList.contains('open')) {
-            toggle();
-        }
-    })
-})
+menuTl.reverse();
 
-function toggle() {
-    menuBtn.classList.toggle("open");
-    menuitems.classList.toggle("open");
-}
+$(toggleBtn).on("click", function() {
+    menuTl.reversed(!menuTl.reversed());
+    one.classList.toggle('toggle')
+    two.classList.toggle('toggle')
+    console.log("test");
+});
+$(document).on("click", "a", function() {
+    menuTl.reversed(!menuTl.reversed());
+});

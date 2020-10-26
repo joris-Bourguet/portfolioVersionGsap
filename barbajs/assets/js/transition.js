@@ -1,24 +1,24 @@
-const onLeaving = (container) => {
-    var tl = gsap.timeline();
-    tl.to('ul.transition li', {
-        duration: .4,
-        scaleY: 1,
-        transformOrigin: "bottom left",
-        stagger: .2
-    });
-    return tl
-}
+// const onLeaving = (container) => {
+//     var tl = gsap.timeline();
+//     tl.to('ul.transition li', {
+//         duration: .4,
+//         scaleY: 1,
+//         transformOrigin: "bottom left",
+//         stagger: .2
+//     }, "+=2.5");
+//     return tl
+// }
 
-const onEnter = (container) => {
-    var tl = gsap.timeline();
-    tl.to('ul.transition li', {
-        duration: .4,
-        scaleY: 0,
-        transformOrigin: "bottom left",
-        stagger: .2
-    }, "+=.2");
-    return tl;
-}
+// const onEnter = (container) => {
+//     var tl = gsap.timeline();
+//     tl.to('ul.transition li', {
+//         duration: .4,
+//         scaleY: 0,
+//         transformOrigin: "bottom left",
+//         stagger: .2
+//     }, "+=.2");
+//     return tl;
+// }
 
 const bouncyCircle = new mojs.Shape({
     parent: '.loader',
@@ -48,30 +48,9 @@ barba.init({
         once({ next }) {
             onOnce(next.container);
         },
-        leave: ({ current }) => onLeaving(current.container),
-        enter({ next }) {
-            console.log(onEnter(next.container));
-        },
+        // leave: ({ current }) => onLeaving(current.container),
+        // enter({ next }) {
+        //     console.log(onEnter(next.container));
+        // },
     }]
 })
-
-// barba.init({
-//     sync: true,
-//     transitions: [{
-//         async leave(data) {
-//             const done = this.async();
-//             pageTransition();
-
-//             await delay(1500);
-//             done();
-//         },
-
-//         async enter(data) {
-//             contentAnimationEnter();
-//         },
-
-//         async once(data) {
-//             pageLoader();
-//         }
-//     }]
-// })
