@@ -5,22 +5,22 @@ const two = document.querySelector('.two')
 var menuTl = gsap.timeline()
 
 menuTl.to(".one", 0.8, {
+    width: "60%",
+    left: "8px",
     y: 6,
     rotation: 45,
     ease: "power4.in",
-    width: "60%",
-    left: "8px",
-    BackgroundColor: "#0a004b"
+    backgroundColor: "#ff4f4f"
 });
 
 menuTl.to(".two", .8, {
+    width: "60%",
+    left: "8px",
     y: -6,
     rotation: -45,
     ease: "power4.in",
     delay: -0.8,
-    width: "60%",
-    left: "8px",
-    backgroundColor: "#0a004b"
+    backgroundColor: "#ff4f4f"
 });
 
 menuTl.fromTo(".menu", .8, {
