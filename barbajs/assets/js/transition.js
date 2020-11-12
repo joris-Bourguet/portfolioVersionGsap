@@ -1,57 +1,58 @@
-// const onLeaving = (container) => {
-//     var tl = gsap.timeline();
-//     tl.to('ul.transition li', {
-//         duration: .4,
-//         scaleY: 1,
-//         transformOrigin: "bottom left",
-//         stagger: .2
-//     }, "-=1");
-//     return tl
-// }
+function delay(n) {
+    n = n || 2000;
+    return new Promise(done => {
+        setTimeout(() => {
+            done();
+        }, n)
+    })
+}
 
-// const onEnter = (container) => {
-//     var tl = gsap.timeline();
-//     tl.to('ul.transition li', {
-//         duration: .4,
-//         scaleY: 0,
-//         transformOrigin: "bottom left",
-//         stagger: .2
-//     });
-//     return tl;
-// }
-
-const bouncyCircle = new mojs.Shape({
-    parent: '.loader',
-    shape: 'circle',
-    fill: { '#F64040': '#FC46AD' },
-    radius: { 20: 80 },
-    duration: 2000,
-    isYoyo: true,
-    isShowStart: true,
-    easing: 'elastic.inout',
-    repeat: 1,
-});
+const onBeforeOnce = (container) => {
+    var tlLoader = new gsap.timeline({
+        repeat: 1
+    })
+    tlLoader
+        .staggerFromTo('.dot', 0.5, {
+                y: 0,
+                autoAlpha: 0
+            }, {
+                y: 20,
+                autoAlpha: 1,
+                ease: Back.easeInOut
+            },
+            0.1
+        )
+        .fromTo('#loader', 0.3, {
+                autoAlpha: 1,
+                scale: 1
+            }, {
+                autoAlpha: 0,
+                ease: Power0.easeNone,
+            },
+            1
+        );
+    return tlLoader;
+}
 
 const onOnce = (container) => {
-    var tl = gsap.timeline();
-    tl.to('.loader', {
-        delay: 4,
-        y: '-100vh',
-    })
-    bouncyCircle.play()
+    var tl = new gsap.timeline({ default: { ease: "power1.out" } })
+
+    tl.to('.text', { y: '0%', duration: 1, stagger: 0.5 }, "+=2.5")
+        .to('.sliderAnimation', { y: '-100%', duration: 1.5, delay: 0.5 })
+        .to('.intro', { y: '-100%', duration: 1 }, "-=1")
     return tl;
 }
 
 
 barba.init({
+    sync: true,
     transitions: [{
-        // once({ next }) {
-        //     console.log("entering");
-        //     onOnce(next.container);
-        // },
-        // leave: ({ current }) => onLeaving(current.container),
-        // enter({ next }) {
-        //     console.log(onEnter(next.container));
-        // },
+        name: 'hello',
+        async beforeOnce({ next }) {
+            onBeforeOnce(next.container)
+        },
+        async once({ next }) {
+            onOnce(next.container);
+        }
     }]
 })

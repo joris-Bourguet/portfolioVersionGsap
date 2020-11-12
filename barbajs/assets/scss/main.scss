@@ -45,101 +45,184 @@ $color-secondary-dark:#c50426;
 * {
     scroll-behavior: smooth;
     font-family: $font-primary;
+    box-sizing: border-box;
 }
 
 html,
 body {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
     margin: 0;
     padding: 0;
 }
 
-// Landing Page pb avec contenu supp à taille ecran impossible overflow hidden
-// #onOnce {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     height: 100vh;
-//     width: 100%;
-//     background-color: #111111;
-//     z-index: 999;
-//     overflow: hidden;
-// }
-// .content {
-//     height: 1000px;
-// }
-ul.transition {
-    display: flex;
-    position: absolute;
-    z-index: 10;
-    height: 100vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-    margin: 0;
-    pointer-events: none;
-    padding: 0;
-    list-style: none;
-    li {
-        transform: scaleY(0);
-        background-color: $color-primary-dark;
-        width: calc(100% / 6);
-    }
-}
-
-.toggle-btn {
-    display: block;
-    position: fixed;
-    width: 50px;
-    height: 30px;
-    top: 60px;
-    right: 80px;
-    z-index: 200;
-    cursor: pointer;
-    span {
+.wrapper {
+    .toggle-btn {
         display: block;
+        position: fixed;
+        width: 50px;
+        height: 30px;
+        top: 60px;
+        right: 80px;
+        z-index: 200;
+        cursor: pointer;
+        span {
+            display: block;
+            position: absolute;
+            height: 4px;
+            transition: width .4s ease-in-out;
+            width: 100%;
+            background-color: $color-primary-dark;
+        }
+        .one {
+            position: absolute;
+        }
+        .two {
+            position: absolute;
+            margin-top: 12px;
+        }
+    }
+    .menu {
+        z-index: 1;
         position: absolute;
-        height: 4px;
-        transition: width .4s ease-in-out;
+        background-color: $color-primary;
+        height: 100vh;
         width: 100%;
-        background-color: $color-primary-dark;
-    }
-    .one {
-        position: absolute;
-    }
-    .two {
-        position: absolute;
-        margin-top: 12px;
-    }
-}
-
-.menu {
-    z-index: 0;
-    position: absolute;
-    background-color: $color-primary;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    .data {
-        padding: 8em 0 0 2em;
-        text-align: left;
-        ul {
-            list-style: none;
-            li:first-child {
-                color: $color-secondary-dark;
-                font-family: $font-secondary;
-                font-size: 2rem;
-            }
-            li:not(:first-child) {
-                color: $color-secondary;
-                font-size: 4rem;
-            }
-            a {
-                color: $color-secondary;
-                text-decoration: none;
-                &:hover {
+        overflow: hidden;
+        .data {
+            padding: 8em 0 0 2em;
+            text-align: left;
+            ul {
+                list-style: none;
+                li:first-child {
                     color: $color-secondary-dark;
+                    font-family: $font-secondary;
+                    font-size: 2rem;
+                }
+                li:not(:first-child) {
+                    color: $color-secondary;
+                    font-size: 4rem;
+                }
+                a {
+                    color: $color-secondary;
+                    text-decoration: none;
+                    &:hover {
+                        color: $color-secondary-dark;
+                    }
                 }
             }
         }
     }
+}
+
+.landing {
+    height: 100vh;
+    padding: 0rem 5rem;
+    position: relative;
+    .wrapperTitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20%;
+        height: 100vh;
+        h2 {
+            text-align: center;
+            padding: 0 1em;
+            font-size: 2.5em;
+        }
+        p {
+            text-align: center;
+            padding: 0 1em;
+            font-size: 1.3em;
+            line-height: 1.5em;
+        }
+    }
+    .caroussel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+    }
+    // .projects {
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     height: 100vh;
+    //     width: 80%;
+    //     .project1 img {
+    //         width: 100%;
+    //     }
+    // }
+}
+
+.intro {
+    background: #000;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    .intro-text {
+        color: rgb(227, 242, 255);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 2rem;
+        text-align: justify;
+        .hide {
+            font-size: 2em;
+            padding: 0;
+            margin: 0;
+            background: #000;
+            overflow: hidden;
+            span {
+                transform: translateY(100%);
+                display: inline-block;
+            }
+        }
+    }
+    #loader {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        text-align: center;
+        opacity: 0;
+    }
+    #loader .dot {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 5px;
+        border: 2px solid #fff;
+    }
+}
+
+.sliderAnimation {
+    background: rgb(121, 54, 54);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
 }

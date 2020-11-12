@@ -24,10 +24,10 @@ menuTl.to(".two", .8, {
 });
 
 menuTl.fromTo(".menu", .8, {
-    top: "-100%",
+    top: "-100vh",
 
 }, {
-    top: "0%",
+    top: "0vh",
     ease: "power4.in"
 }, "-=.5");
 
@@ -44,7 +44,7 @@ $(toggleBtn).on("click", function() {
     one.classList.toggle('toggle')
     two.classList.toggle('toggle')
 });
-$(document).on("click", "a", function() {
+$(document).on("click", ".menu a", function() {
     menuTl.reversed(!menuTl.reversed());
     one.classList.toggle('toggle')
     two.classList.toggle('toggle')

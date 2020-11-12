@@ -4,25 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barba.js test</title>
+    <title>Portfolio - Joris Bourguet</title>
     <link rel="stylesheet" href="assets/dist/main.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 </head>
 
 <body data-barba="wrapper">
 
-    <section id="onOnce">
-        <div class="loader"></div>
-    </section>
-
-    <ul class="transition">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
     <div class="wrapper">
         <div class="toggle-btn">
             <span class="one"></span>
@@ -49,14 +38,44 @@
             </div>
         </div>
     </div>
+    <div class="intro">
+        <div id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="intro-text">
+            <h2 class="hide">
+                <span class="text">Joris Bourguet</span>
+            </h2>
+            <h2 class="hide">
+                <span class="text">Web développer</span>
+            </h2>
+            <h2 class="hide">
+                <span class="text">portfolio .</span>
+            </h2>
+        </div>
+    </div>
+    <div class="sliderAnimation"></div>
+
 
     <main data-barba="container" data-barba-namespace="home">
-        <h1>Bienvenue sur JORISBOURGUET.FR</h1>
+        <section class="landing">
+            <div class="wrapperTitle">
+                <h2>Titre du projet</h2>
+                <p>Description du projet : <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi accusamus quam quia eveniet molestias hic sed tempora neque aliquid veniam aspernatur nemo, dolorum, repudiandae, eaque corporis beatae perspiciatis
+                    enim. Reprehenderit.
+                </p>
+            </div>
+            <div class="caroussel">
+                <div class="projects">
+                    <div class="project1">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="assets/js/transition.js"></script>
     <script src="assets/js/app.js"></script>

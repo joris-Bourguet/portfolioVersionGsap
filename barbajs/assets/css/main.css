@@ -30,38 +30,29 @@ secondary
 * {
   scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,
 body {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
   margin: 0;
   padding: 0;
 }
 
-ul.transition {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  z-index: 10;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  margin: 0;
-  pointer-events: none;
-  padding: 0;
-  list-style: none;
-}
-
-ul.transition li {
-  -webkit-transform: scaleY(0);
-          transform: scaleY(0);
-  background-color: #000025;
-  width: calc(100% / 6);
-}
-
-.toggle-btn {
+.wrapper .toggle-btn {
   display: block;
   position: fixed;
   width: 50px;
@@ -72,7 +63,7 @@ ul.transition li {
   cursor: pointer;
 }
 
-.toggle-btn span {
+.wrapper .toggle-btn span {
   display: block;
   position: absolute;
   height: 4px;
@@ -82,17 +73,17 @@ ul.transition li {
   background-color: #000025;
 }
 
-.toggle-btn .one {
+.wrapper .toggle-btn .one {
   position: absolute;
 }
 
-.toggle-btn .two {
+.wrapper .toggle-btn .two {
   position: absolute;
   margin-top: 12px;
 }
 
-.menu {
-  z-index: 0;
+.wrapper .menu {
+  z-index: 1;
   position: absolute;
   background-color: #0a004b;
   height: 100vh;
@@ -100,31 +91,147 @@ ul.transition li {
   overflow: hidden;
 }
 
-.menu .data {
+.wrapper .menu .data {
   padding: 8em 0 0 2em;
   text-align: left;
 }
 
-.menu .data ul {
+.wrapper .menu .data ul {
   list-style: none;
 }
 
-.menu .data ul li:first-child {
+.wrapper .menu .data ul li:first-child {
   color: #c50426;
   font-family: "Ultra", serif;
   font-size: 2rem;
 }
 
-.menu .data ul li:not(:first-child) {
+.wrapper .menu .data ul li:not(:first-child) {
   color: #ff4f4f;
   font-size: 4rem;
 }
 
-.menu .data ul a {
+.wrapper .menu .data ul a {
   color: #ff4f4f;
   text-decoration: none;
 }
 
-.menu .data ul a:hover {
+.wrapper .menu .data ul a:hover {
   color: #c50426;
+}
+
+.landing {
+  height: 100vh;
+  padding: 0rem 5rem;
+  position: relative;
+}
+
+.landing .wrapperTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+}
+
+.landing .wrapperTitle h2 {
+  text-align: center;
+  padding: 0 1em;
+  font-size: 2.5em;
+}
+
+.landing .wrapperTitle p {
+  text-align: center;
+  padding: 0 1em;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+.landing .caroussel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100vh;
+}
+
+.intro {
+  background: #000;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 999;
+}
+
+.intro .intro-text {
+  color: #e3f2ff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.intro .intro-text .hide {
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.intro .intro-text .hide span {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  display: inline-block;
+}
+
+.intro #loader {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center;
+  opacity: 0;
+}
+
+.intro #loader .dot {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: 2px solid #fff;
+}
+
+.sliderAnimation {
+  background: #793636;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
