@@ -163,7 +163,24 @@ body {
 
 .landing .caroussel .projects {
   height: 100%;
-  width: 100%;
+  width: 500%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.landing .caroussel .projects .projet1 {
+  height: 100%;
+  width: 20%;
+  background: url(../images/testLandingPageLeft.jpg) center center;
+  background-size: cover;
+}
+
+.landing .caroussel .projects .projet2 {
+  height: 100%;
+  width: 20%;
+  background: url(../images/testLandingPageLeft.jpg) center center;
+  background-size: cover;
 }
 
 .landing .caroussel .control {
@@ -174,14 +191,15 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  left: 10%;
-  right: 10%;
+  left: 8%;
+  right: 8%;
   top: 50%;
 }
 
 .landing .caroussel .control button {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .landing .caroussel .control button i {

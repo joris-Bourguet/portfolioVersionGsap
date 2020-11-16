@@ -149,20 +149,35 @@ body {
         position: relative;
         grid-area: caroussel;
         background-color: rgb(220, 220, 220);
+        // overflow-x: hidden;
         .projects {
             height: 100%;
-            width: 100%;
+            width: 500%;
+            display: flex;
+            .projet1 {
+                height: 100%;
+                width: 20%;
+                background: url(../images/testLandingPageLeft.jpg) center center;
+                background-size: cover;
+            }
+            .projet2 {
+                height: 100%;
+                width: 20%;
+                background: url(../images/testLandingPageLeft.jpg) center center;
+                background-size: cover;
+            }
         }
         .control {
             position: absolute;
             display: flex;
             justify-content: space-between;
-            left: 10%;
-            right: 10%;
+            left: 8%;
+            right: 8%;
             top: 50%;
             button {
                 background: none;
                 border: none;
+                cursor: pointer;
                 i {
                     font-size: 1.5em;
                 }

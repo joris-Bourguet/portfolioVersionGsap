@@ -49,3 +49,27 @@ $(document).on("click", ".menu a", function() {
     one.classList.toggle('toggle')
     two.classList.toggle('toggle')
 });
+
+
+
+const slides = document.querySelectorAll(".js-slide")
+const leftBtn = document.querySelector(".left")
+const rightBtn = document.querySelector(".right")
+
+leftBtn.addEventListener("click", () => {
+    goToLeft();
+})
+
+rightBtn.addEventListener("click", () => {
+    goToRight();
+})
+
+for (let i = 0; i < slides.length; i++) {
+    const element = slides[i];
+
+    function goToLeft() {
+        console.log(element);
+    }
+
+    function goToRight(i) {}
+}
