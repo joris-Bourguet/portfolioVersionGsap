@@ -127,35 +127,27 @@ body {
 }
 
 .landing {
+    display: grid;
     height: 100vh;
-    position: relative;
+    grid-template: "wrapperTitle  caroussel" "contact contact";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
     .wrapperTitle {
         display: flex;
-        flex-direction: column;
+        flex-flow: column nowrap;
         justify-content: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20%;
-        height: 100vh;
-        h2 {
-            text-align: center;
-            padding: 0 1em;
-            font-size: 2.5em;
-        }
+        align-items: center;
+        grid-area: wrapperTitle;
+        background-color: #fff;
+        padding: 1.5rem;
         p {
-            text-align: center;
-            padding: 0 1em;
-            font-size: 1.3em;
             line-height: 1.5em;
+            text-align: center;
         }
     }
     .caroussel {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 80%;
-        height: 100vh;
+        grid-area: caroussel;
+        background-color: rgb(220, 220, 220);
     }
 }
 
@@ -214,4 +206,15 @@ body {
     width: 100%;
     height: 100%;
     transform: translateY(100%);
+}
+
+
+/*=========================== Responsive grid ===========================*/
+
+@media only screen and (max-width: 1024px) {
+    .landing {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr;
+        grid-template-areas: "wrapperTitle" "caroussel" "contact";
+    }
 }
