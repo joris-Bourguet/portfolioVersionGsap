@@ -156,8 +156,36 @@ body {
 }
 
 .landing .caroussel {
+  position: relative;
   grid-area: caroussel;
   background-color: gainsboro;
+}
+
+.landing .caroussel .projects {
+  height: 100%;
+  width: 100%;
+}
+
+.landing .caroussel .control {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+}
+
+.landing .caroussel .control button {
+  background: none;
+  border: none;
+}
+
+.landing .caroussel .control button i {
+  font-size: 1.5em;
 }
 
 .intro {

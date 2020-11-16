@@ -146,8 +146,28 @@ body {
         }
     }
     .caroussel {
+        position: relative;
         grid-area: caroussel;
         background-color: rgb(220, 220, 220);
+        .projects {
+            height: 100%;
+            width: 100%;
+        }
+        .control {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            left: 10%;
+            right: 10%;
+            top: 50%;
+            button {
+                background: none;
+                border: none;
+                i {
+                    font-size: 1.5em;
+                }
+            }
+        }
     }
 }
 
