@@ -51,25 +51,52 @@ $(document).on("click", ".menu a", function() {
 });
 
 
+//Debut du caroussel de la page d'accueil
 
+
+const slider = document.querySelector(".projects")
 const slides = document.querySelectorAll(".js-slide")
 const leftBtn = document.querySelector(".left")
 const rightBtn = document.querySelector(".right")
 
-leftBtn.addEventListener("click", () => {
-    goToLeft();
-})
+console.log(slides);
+let i;
+let currentSlide;
 
-rightBtn.addEventListener("click", () => {
-    goToRight();
-})
+let tailleNext = "0px";
 
-for (let i = 0; i < slides.length; i++) {
-    const element = slides[i];
 
-    function goToLeft() {
-        console.log(element);
+for (i = 0; i < slides.length; i++) {}
+
+// debut du caroussel à l'image : 
+i = 0;
+
+leftBtn.addEventListener('click', () => {
+    if (i <= 0) {
+        i = slides.length - 1
+    } else {
+        i--;
     }
+    goToNext(i);
+})
 
-    function goToRight(i) {}
+
+rightBtn.addEventListener('click', () => {
+    if (i >= slides.length - 1) {
+        i = 0
+    } else {
+        i++;
+    }
+    goToNext(i);
+})
+
+
+function goToNext(i) {
+    currentSlide = slides[i]
+
+    tailleNext = "-" + currentSlide.offsetLeft + "px"
+    slider.style.transform = `translateX(${tailleNext})`
 }
+
+
+//Fin du caroussel de la page d'accueil

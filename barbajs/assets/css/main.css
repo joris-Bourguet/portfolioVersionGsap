@@ -135,6 +135,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
@@ -157,8 +158,10 @@ body {
 
 .landing .caroussel {
   position: relative;
+  z-index: 0;
   grid-area: caroussel;
   background-color: gainsboro;
+  overflow-x: hidden;
 }
 
 .landing .caroussel .projects {
@@ -167,6 +170,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .landing .caroussel .projects .projet1 {
@@ -177,6 +184,27 @@ body {
 }
 
 .landing .caroussel .projects .projet2 {
+  height: 100%;
+  width: 20%;
+  background: url(../images/testLandingPage.jpg) center center;
+  background-size: cover;
+}
+
+.landing .caroussel .projects .projet3 {
+  height: 100%;
+  width: 20%;
+  background: url(../images/testLandingPageLeft.jpg) center center;
+  background-size: cover;
+}
+
+.landing .caroussel .projects .projet4 {
+  height: 100%;
+  width: 20%;
+  background: url(../images/testLandingPage.jpg) center center;
+  background-size: cover;
+}
+
+.landing .caroussel .projects .projet5 {
   height: 100%;
   width: 20%;
   background: url(../images/testLandingPageLeft.jpg) center center;
@@ -193,7 +221,7 @@ body {
           justify-content: space-between;
   left: 8%;
   right: 8%;
-  top: 50%;
+  top: 90%;
 }
 
 .landing .caroussel .control button {
