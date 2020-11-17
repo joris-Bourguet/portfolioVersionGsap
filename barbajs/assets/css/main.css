@@ -59,7 +59,7 @@ body {
   height: 30px;
   top: 60px;
   right: 80px;
-  z-index: 200;
+  z-index: 999;
   cursor: pointer;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 .wrapper .menu {
-  z-index: 1;
+  z-index: 998;
   position: absolute;
   background-color: #0a004b;
   height: 100vh;
@@ -186,28 +186,28 @@ body {
 .landing .caroussel .projects .projet2 {
   height: 100%;
   width: 20%;
-  background: url(../images/testLandingPage.jpg) center center;
+  background: url(https://place-hold.it/500?text=projet2) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet3 {
   height: 100%;
   width: 20%;
-  background: url(../images/testLandingPageLeft.jpg) center center;
+  background: url(https://place-hold.it/500?text=projet3) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet4 {
   height: 100%;
   width: 20%;
-  background: url(../images/testLandingPage.jpg) center center;
+  background: url(https://place-hold.it/500?text=projet4) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet5 {
   height: 100%;
   width: 20%;
-  background: url(../images/testLandingPageLeft.jpg) center center;
+  background: url(https://place-hold.it/500?text=projet5) center center;
   background-size: cover;
 }
 
@@ -221,12 +221,14 @@ body {
           justify-content: space-between;
   left: 8%;
   right: 8%;
-  top: 90%;
+  top: 50%;
 }
 
 .landing .caroussel .control button {
   background: none;
-  border: none;
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 100%;
   cursor: pointer;
 }
 
@@ -313,5 +315,12 @@ body {
     -ms-grid-rows: 1fr 3fr;
         grid-template-rows: 1fr 3fr;
         grid-template-areas: "wrapperTitle" "caroussel" "contact";
+  }
+}
+
+/*=========================== Responsive menu ===========================*/
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    display: none;
   }
 }

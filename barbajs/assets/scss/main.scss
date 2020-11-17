@@ -75,7 +75,7 @@ body {
         height: 30px;
         top: 60px;
         right: 80px;
-        z-index: 200;
+        z-index: 999;
         cursor: pointer;
         span {
             display: block;
@@ -94,7 +94,7 @@ body {
         }
     }
     .menu {
-        z-index: 1;
+        z-index: 998;
         position: absolute;
         background-color: $color-primary;
         height: 100vh;
@@ -166,25 +166,25 @@ body {
             .projet2 {
                 height: 100%;
                 width: 20%;
-                background: url(../images/testLandingPage.jpg) center center;
+                background: url(https://place-hold.it/500?text=projet2) center center;
                 background-size: cover;
             }
             .projet3 {
                 height: 100%;
                 width: 20%;
-                background: url(../images/testLandingPageLeft.jpg) center center;
+                background: url(https://place-hold.it/500?text=projet3) center center;
                 background-size: cover;
             }
             .projet4 {
                 height: 100%;
                 width: 20%;
-                background: url(../images/testLandingPage.jpg) center center;
+                background: url(https://place-hold.it/500?text=projet4) center center;
                 background-size: cover;
             }
             .projet5 {
                 height: 100%;
                 width: 20%;
-                background: url(../images/testLandingPageLeft.jpg) center center;
+                background: url(https://place-hold.it/500?text=projet5) center center;
                 background-size: cover;
             }
         }
@@ -194,10 +194,12 @@ body {
             justify-content: space-between;
             left: 8%;
             right: 8%;
-            top: 90%;
+            top: 50%;
             button {
                 background: none;
-                border: none;
+                border: 1px solid black;
+                padding: 1em;
+                border-radius: 100%;
                 cursor: pointer;
                 i {
                     font-size: 1.5em;
@@ -272,5 +274,14 @@ body {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 3fr;
         grid-template-areas: "wrapperTitle" "caroussel" "contact";
+    }
+}
+
+
+/*=========================== Responsive menu ===========================*/
+
+@media only screen and (max-width: 500px) {
+    .wrapper {
+        display: none;
     }
 }
