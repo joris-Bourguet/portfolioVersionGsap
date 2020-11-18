@@ -152,6 +152,14 @@ secondary
                 }
             }
         }
+        @keyframes animationCaroussel {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
         .caroussel {
             position: relative;
             z-index: 0;
@@ -212,6 +220,14 @@ secondary
                         font-size: 1.5em;
                     }
                 }
+            }
+            .carousselDots {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                left: 8%;
+                right: 8%;
+                top: 93%;
             }
         }
     }

@@ -13,10 +13,34 @@ function caroussel() {
     const leftBtn = document.querySelector(".left")
     const rightBtn = document.querySelector(".right")
 
+    let radio = document.querySelectorAll(".radioSlider")
+    let btnChecked;
     let i;
     let currentSlide;
-
     let tailleNext = "0px";
+
+    // Pour les btn radio
+
+    function findBtnChecked() {
+        for (let j = 0; j < radio.length; j++) {
+            if (radio[j].checked) {
+                btnChecked = radio[j].value;
+                i = btnChecked
+                return btnChecked, i
+            }
+        }
+    }
+
+    radio.forEach(item => {
+        item.addEventListener("click", () => {
+            findBtnChecked()
+            goToNext(findBtnChecked())
+            console.log(findBtnChecked(), i);
+        })
+    });
+
+
+    // Pour swiper téléphone 
 
     slider.addEventListener('touchstart', function(event) {
         touchstartX = event.changedTouches[0].screenX;
@@ -41,10 +65,12 @@ function caroussel() {
         goToNext(i)
     }
 
-    for (i = 0; i < slides.length; i++) {}
+    // Pour les btn gauche droite 
+
+    // for (i = 0; i < slides.length; i++) {}
 
     leftBtn.addEventListener('click', () => {
-        let tlChangeText = new gsap.timeline({})
+        let tlChangeText = gsap.timeline({})
         tlChangeText.fromTo(".projectInfo", { x: "-100px", opacity: 0, z: "-100px" }, { x: "0px", opacity: 1, scale: 1, duration: 1.2 })
 
         if (i <= 0) {
@@ -59,7 +85,6 @@ function caroussel() {
     rightBtn.addEventListener('click', () => {
         let tlChangeText = new gsap.timeline({})
         tlChangeText.fromTo(".projectInfo", { x: "50px", opacity: 0 }, { x: "0px", opacity: 1 })
-
         if (i >= slides.length - 1) {
             i = 0
         } else {
@@ -69,11 +94,13 @@ function caroussel() {
     })
 
     function goToNext(i) {
-        let tlChangeText = new gsap.timeline({})
+        let tlChangeText = gsap.timeline({})
+
         currentSlide = slides[i]
         tailleNext = "-" + currentSlide.offsetLeft + "px"
         slider.style.transform = `translateX(${tailleNext})`
 
+        console.log(btnChecked, i);
         changeText(i, tlChangeText);
     }
 
