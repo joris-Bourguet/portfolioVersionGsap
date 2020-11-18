@@ -219,6 +219,7 @@ secondary
     .intro {
         background: #000;
         position: fixed;
+        //change top to 0 for see Open Browser =>
         top: -100%;
         left: 0;
         width: 100%;
@@ -264,6 +265,7 @@ secondary
     }
     
     .sliderAnimation {
+        z-index: 999;
         background: rgb(121, 54, 54);
         position: fixed;
         top: 0;

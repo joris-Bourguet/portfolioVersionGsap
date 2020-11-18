@@ -329,6 +329,7 @@ body {
 }
 
 .sliderAnimation {
+  z-index: 999;
   background: #793636;
   position: fixed;
   top: 0;

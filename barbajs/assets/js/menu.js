@@ -100,7 +100,19 @@ function transitionDePage() {
         return tl;
     }
 
-
+    barba.init({
+        cacheIgnore: true,
+        sync: true,
+        transitions: [{
+            name: 'hello',
+            async beforeOnce({ next }) {
+                onBeforeOnce(next.container)
+            },
+            async once({ next }) {
+                onOnce(next.container);
+            }
+        }]
+    })
 }
 
 export { transitionDePage }
