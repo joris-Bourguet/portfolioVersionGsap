@@ -132,27 +132,58 @@ body {
 }
 
 .landing .wrapperTitle {
+  z-index: 1;
+  grid-area: wrapperTitle;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2em;
+}
+
+.landing .wrapperTitle .informationContact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-area: wrapperTitle;
-  background-color: #fff;
-  padding: 1.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.landing .wrapperTitle p {
-  line-height: 1.5em;
+.landing .wrapperTitle .projectInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.landing .wrapperTitle .projectInfo p {
+  line-height: 1.8em;
   text-align: center;
 }
 
@@ -229,6 +260,7 @@ body {
   border: 1px solid black;
   padding: 1em;
   border-radius: 100%;
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -257,7 +289,7 @@ body {
 
 .intro .intro-text {
   color: #e3f2ff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 2rem;
   text-align: justify;
 }
@@ -322,5 +354,17 @@ body {
 @media only screen and (max-width: 500px) {
   .wrapper {
     display: none;
+  }
+}
+
+/*=========================== Responsive wrapper left ===========================*/
+@media only screen and (min-width: 1025px) {
+  .projectInfo h2 {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  .projectInfo p {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
   }
 }
