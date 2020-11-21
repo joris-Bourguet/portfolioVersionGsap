@@ -56,9 +56,9 @@ body {
   display: block;
   position: fixed;
   width: 50px;
-  height: 30px;
-  top: 60px;
-  right: 80px;
+  height: 1em;
+  top: 3.5rem;
+  right: 4rem;
   z-index: 999;
   cursor: pointer;
 }
@@ -213,6 +213,14 @@ body {
   overflow-x: hidden;
 }
 
+.landing .caroussel .pageTitle {
+  position: absolute;
+  top: 1rem;
+  left: 4rem;
+  z-index: 1;
+  font-size: 2rem;
+}
+
 .landing .caroussel .projects {
   height: 100%;
   width: 500%;
@@ -235,21 +243,21 @@ body {
 .landing .caroussel .projects .projet2 {
   height: 100%;
   width: 20%;
-  background: url(https://place-hold.it/500?text=projet2) center center;
+  background: url(../images/poleMecaLanding.jpg) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet3 {
   height: 100%;
   width: 20%;
-  background: url(https://place-hold.it/500?text=projet3) center center;
+  background: url(../images/websitedevLanding.jpg) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet4 {
   height: 100%;
   width: 20%;
-  background: url(https://place-hold.it/500?text=projet4) center center;
+  background: url(../images/hotelLequipeLanding.jpg) center center;
   background-size: cover;
 }
 
@@ -294,9 +302,29 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 2em;
   left: 8%;
   right: 8%;
   top: 93%;
+}
+
+.landing .caroussel .carousselDots div {
+  background-color: #c50426;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.landing .caroussel .carousselDots div input {
+  display: none;
+}
+
+.landing .caroussel .carousselDots div label {
+  border-radius: 5px;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .intro {

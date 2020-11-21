@@ -12,35 +12,41 @@ function caroussel() {
     const slides = document.querySelectorAll(".js-slide")
     const leftBtn = document.querySelector(".left")
     const rightBtn = document.querySelector(".right")
+    const radio = document.querySelectorAll(".radioSlider")
+    const label = document.querySelectorAll('.js-label')
+    const divRadioBtn = document.querySelectorAll('.js-divRadio')
 
-    let radio = document.querySelectorAll(".radioSlider")
     let btnChecked;
     let i;
     let currentSlide;
     let tailleNext = "0px";
 
-    // Pour les btn radio
+    // =============== Pour les btn radio
 
+    // check le bon btn apres un swipe left or right
+    function checkBtn(i) {
+        radio[i].checked = true
+    }
+    //cherche le btn qui est check
     function findBtnChecked() {
         for (let j = 0; j < radio.length; j++) {
             if (radio[j].checked) {
                 btnChecked = radio[j].value;
                 i = btnChecked
-                return btnChecked, i
+                return btnChecked
             }
         }
     }
-
+    //quand on click sur un btn on vas sur la bonne diapo
     radio.forEach(item => {
         item.addEventListener("click", () => {
             findBtnChecked()
-            goToNext(findBtnChecked())
-            console.log(findBtnChecked(), i);
+            goToNext(findBtnChecked(), i)
         })
     });
 
 
-    // Pour swiper téléphone 
+    // =============== Pour swiper téléphone 
 
     slider.addEventListener('touchstart', function(event) {
         touchstartX = event.changedTouches[0].screenX;
@@ -65,14 +71,12 @@ function caroussel() {
         goToNext(i)
     }
 
-    // Pour les btn gauche droite 
+    // =============== Pour les btn gauche droite 
 
     // for (i = 0; i < slides.length; i++) {}
-
     leftBtn.addEventListener('click', () => {
-        let tlChangeText = gsap.timeline({})
-        tlChangeText.fromTo(".projectInfo", { x: "-100px", opacity: 0, z: "-100px" }, { x: "0px", opacity: 1, scale: 1, duration: 1.2 })
-
+        let tlChangeSlide = gsap.timeline({})
+        tlChangeSlide.fromTo(".projectInfo", { x: "-100px", opacity: 0, z: "-100px" }, { x: "0px", opacity: 1, scale: 1, duration: 1.2 })
         if (i <= 0) {
             i = slides.length - 1
         } else {
@@ -81,37 +85,57 @@ function caroussel() {
         goToNext(i);
     })
 
-
     rightBtn.addEventListener('click', () => {
-        let tlChangeText = new gsap.timeline({})
-        tlChangeText.fromTo(".projectInfo", { x: "50px", opacity: 0 }, { x: "0px", opacity: 1 })
+        let tlChangeSlide = gsap.timeline({})
+        tlChangeSlide.fromTo(".projectInfo", { x: "50px", opacity: 0 }, { x: "0px", opacity: 1 })
         if (i >= slides.length - 1) {
             i = 0
         } else {
             i++;
         }
-        goToNext(i, tlChangeText);
+        goToNext(i);
     })
 
+    // direction vers la bonne diapo et init tl for change text
     function goToNext(i) {
-        let tlChangeText = gsap.timeline({})
+        let tlChangeSlide = gsap.timeline({})
 
         currentSlide = slides[i]
         tailleNext = "-" + currentSlide.offsetLeft + "px"
         slider.style.transform = `translateX(${tailleNext})`
 
-        console.log(btnChecked, i);
-        changeText(i, tlChangeText);
+        checkBtn(i);
+        changeText(i, tlChangeSlide);
+        changeColorLabel(tlChangeSlide);
     }
 
-    // Choix de la diapo de départ
-    goToNext(i = 0)
+
+    // Changement de la couleur des labels
+    function changeColorLabel(tlChangeSlide) {
+        for (let j = 0; j < radio.length; j++) {
+            const element = radio[j];
+            if (element.checked) {
+                tlChangeSlide.fromTo(label[j], {
+                    y: "-10px",
+                    opacity: 0,
+                }, {
+                    y: "0px",
+                    backgroundColor: "#000025",
+                    width: "1em",
+                    opacity: 1,
+                    duration: .5
+                }, 0)
+            } else {
+                tlChangeSlide.to(label[j], { backgroundColor: "#c50426", height: "8px", width: "2.5em" }, 0)
+            }
+        }
+    }
 
     // Changement du text de description
-
-    function changeText(i, tlChangeText) {
-        tlChangeText.play()
-        switch (i) {
+    function changeText(i, tlChangeSlide) {
+        let parseI = parseInt(i)
+        tlChangeSlide.play()
+        switch (parseI) {
             case 0:
                 titreProject.innerHTML = `Titre #1`
                 descProject.innerHTML = "Bienvenu sur mon portfolio vous retrouverez ici tous mes projets ainsi que mon cv etc..."
@@ -141,7 +165,12 @@ function caroussel() {
                 break;
         }
     }
+    //init du caroussel
+    // Choix de la diapo de départ
+    goToNext(i = 0)
 }
+
+
 // ===================== Fin du caroussel de la page daccueil
 
 export { caroussel }
