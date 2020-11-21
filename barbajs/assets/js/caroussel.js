@@ -1,20 +1,17 @@
 // ===================== Debut du caroussel de la page d'accueil + swipe mobile
 function caroussel() {
-    let titreProject = document.querySelector(".js-projectTitle");
-    let descProject = document.querySelector(".js-projectDescription");
-
-    let touchstartX = 0;
-    let touchstartY = 0;
-    let touchendX = 0;
-    let touchendY = 0;
-
+    const carousselBox = document.querySelector(".caroussel");
     const slider = document.querySelector(".projects")
     const slides = document.querySelectorAll(".js-slide")
     const leftBtn = document.querySelector(".left")
     const rightBtn = document.querySelector(".right")
     const radio = document.querySelectorAll(".radioSlider")
     const label = document.querySelectorAll('.js-label')
-    const divRadioBtn = document.querySelectorAll('.js-divRadio')
+
+    let touchstartX = 0;
+    let touchstartY = 0;
+    let touchendX = 0;
+    let touchendY = 0;
 
     let btnChecked;
     let i;
@@ -67,7 +64,6 @@ function caroussel() {
         if (touchendX >= touchstartX) {
             leftBtn.click()
         }
-
         goToNext(i)
     }
 
@@ -75,8 +71,6 @@ function caroussel() {
 
     // for (i = 0; i < slides.length; i++) {}
     leftBtn.addEventListener('click', () => {
-        let tlChangeSlide = gsap.timeline({})
-        tlChangeSlide.fromTo(".projectInfo", { x: "-100px", opacity: 0, z: "-100px" }, { x: "0px", opacity: 1, scale: 1, duration: 1.2 })
         if (i <= 0) {
             i = slides.length - 1
         } else {
@@ -86,8 +80,6 @@ function caroussel() {
     })
 
     rightBtn.addEventListener('click', () => {
-        let tlChangeSlide = gsap.timeline({})
-        tlChangeSlide.fromTo(".projectInfo", { x: "50px", opacity: 0 }, { x: "0px", opacity: 1 })
         if (i >= slides.length - 1) {
             i = 0
         } else {
@@ -105,7 +97,7 @@ function caroussel() {
         slider.style.transform = `translateX(${tailleNext})`
 
         checkBtn(i);
-        changeText(i, tlChangeSlide);
+        // changeText(i, tlChangeSlide);
         changeColorLabel(tlChangeSlide);
     }
 
@@ -165,11 +157,30 @@ function caroussel() {
                 break;
         }
     }
-    //init du caroussel
+    // changement de diapo auto (3sec) si le courssel n'est pas hover
+    let secondes = 0;
+    let interval = 3;
+
+    setInterval(() => {
+        secondes++;
+        if (secondes > interval) {
+            rightBtn.click()
+            secondes = 1;
+        }
+    }, 1000);
+    $(carousselBox).mouseover(function() {
+        secondes = -1;
+    });
+    $(carousselBox).mouseout(function() {
+        secondes = 1;
+    });
+
+
+    // ========== init du caroussel
+
     // Choix de la diapo de départ
     goToNext(i = 0)
 }
-
 
 // ===================== Fin du caroussel de la page daccueil
 
