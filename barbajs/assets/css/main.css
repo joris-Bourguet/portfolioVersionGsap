@@ -52,6 +52,15 @@ body {
   padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
 .wrapper .toggle-btn {
   display: block;
   position: fixed;
@@ -121,14 +130,15 @@ body {
 }
 
 .landing {
+  position: relative;
   display: -ms-grid;
   display: grid;
   height: 100vh;
-  grid-template: "wrapperTitle  caroussel" "contact contact";
-  -ms-grid-columns: 150px 3fr;
-      grid-template-columns: 150px 3fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template: "pageTitle pageTitle contact" "wrapperTitle caroussel caroussel";
+  -ms-grid-columns: 150px 1fr 1fr;
+      grid-template-columns: 150px 1fr 1fr;
+  -ms-grid-rows: 150px 1fr;
+      grid-template-rows: 150px 1fr;
 }
 
 .landing .wrapperTitle {
@@ -143,6 +153,52 @@ body {
   text-align: center;
 }
 
+.landing .pageTitle {
+  grid-area: pageTitle;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.landing .contact {
+  grid-area: contact;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.landing .projectInfo {
+  position: absolute;
+  right: 0;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 35%;
+  background-color: white;
+  padding: 2%;
+  gap: 15px;
+}
+
+.landing .projectInfo * {
+  padding: 0;
+  margin: 0;
+}
+
 .landing .caroussel {
   position: relative;
   z-index: 0;
@@ -151,12 +207,8 @@ body {
   overflow-x: hidden;
 }
 
-.landing .caroussel .pageTitle {
-  position: absolute;
-  top: 1rem;
-  left: 4rem;
-  z-index: 1;
-  font-size: 2rem;
+.landing .caroussel .wCaroussel {
+  width: 100%;
 }
 
 .landing .caroussel .projects {
@@ -172,29 +224,21 @@ body {
 }
 
 .landing .caroussel .projects .projet1 {
-  height: 100%;
-  width: 33.33%;
   background: url(../images/testLandingPageLeft.jpg) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet2 {
-  height: 100%;
-  width: 33.33%;
   background: url(../images/poleMecaLanding.jpg) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet3 {
-  height: 100%;
-  width: 33.33%;
   background: url(../images/websitedevLanding.jpg) center center;
   background-size: cover;
 }
 
 .landing .caroussel .projects .projet4 {
-  height: 100%;
-  width: 33.33%;
   background: url(../images/hotelLequipeLanding.jpg) center center;
   background-size: cover;
 }
@@ -261,7 +305,7 @@ body {
 .intro {
   background: #000;
   position: fixed;
-  top: 0;
+  top: -100%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -333,11 +377,26 @@ body {
 /*=========================== Responsive grid ===========================*/
 @media only screen and (max-width: 1024px) {
   .landing {
+    min-height: calc(var(8.82px, 1vh)*100);
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 1fr 3fr;
-        grid-template-rows: 1fr 3fr;
-        grid-template-areas: "wrapperTitle" "caroussel" "contact";
+    -ms-grid-rows: max-content max-content 300px max-content max-content;
+        grid-template-rows: -webkit-max-content -webkit-max-content 300px -webkit-max-content -webkit-max-content;
+        grid-template-rows: max-content max-content 300px max-content max-content;
+        grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "contact";
+  }
+  .landing .wrapperTitle {
+    -webkit-writing-mode: unset;
+        -ms-writing-mode: unset;
+            writing-mode: unset;
+    text-orientation: unset;
+  }
+  .landing .projectInfo {
+    position: unset;
+    width: unset;
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: descProject;
   }
 }
 
@@ -345,17 +404,5 @@ body {
 @media only screen and (max-width: 500px) {
   .wrapper {
     display: none;
-  }
-}
-
-/*=========================== Responsive wrapper left ===========================*/
-@media only screen and (min-width: 1025px) {
-  .projectInfo h2 {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
-  .projectInfo p {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
   }
 }

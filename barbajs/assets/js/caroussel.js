@@ -1,12 +1,15 @@
 // ===================== Debut du caroussel de la page d'accueil + swipe mobile
 function caroussel() {
     const carousselBox = document.querySelector(".caroussel");
-    const slider = document.querySelector(".projects")
-    const slides = document.querySelectorAll(".js-slide")
-    const leftBtn = document.querySelector(".left")
-    const rightBtn = document.querySelector(".right")
-    const radio = document.querySelectorAll(".radioSlider")
-    const label = document.querySelectorAll('.js-label')
+    const projectInfoBox = document.querySelector(".projectInfo");
+    const slider = document.querySelector(".projects");
+    const slides = document.querySelectorAll(".js-slide");
+    const leftBtn = document.querySelector(".left");
+    const rightBtn = document.querySelector(".right");
+    const radio = document.querySelectorAll(".radioSlider");
+    const label = document.querySelectorAll('.js-label');
+    const titreProject = document.querySelector(".titreProject")
+    const descProject = document.querySelector(".descProject")
 
     let touchstartX = 0;
     let touchstartY = 0;
@@ -17,6 +20,9 @@ function caroussel() {
     let i;
     let currentSlide;
     let tailleNext = "0px";
+
+    let secondes = -5;
+    let interval = 3;
 
     // =============== Pour les btn radio
 
@@ -71,21 +77,29 @@ function caroussel() {
 
     // for (i = 0; i < slides.length; i++) {}
     leftBtn.addEventListener('click', () => {
+        let tlChangeSlide = gsap.timeline({})
+        tlChangeSlide.fromTo(".titreProject", { x: "-20px", opacity: 0, z: "-100px" }, { x: "0px", opacity: 1, duration: 1.1 })
+            .fromTo(".descProject", { x: "-20px", opacity: 0 }, { x: "0px", opacity: 1, duration: 1.1 }, "<")
         if (i <= 0) {
             i = slides.length - 1
         } else {
             i--;
         }
         goToNext(i);
+        secondes = 1;
     })
 
     rightBtn.addEventListener('click', () => {
+        let tlChangeSlide = gsap.timeline({})
+        tlChangeSlide.fromTo(".titreProject", { x: "20px", opacity: 0 }, { x: "0px", opacity: 1, duration: 1.1 })
+            .fromTo(".descProject", { x: "20px", opacity: 0 }, { x: "0px", opacity: 1, duration: 1.1 }, "<")
         if (i >= slides.length - 1) {
             i = 0
         } else {
             i++;
         }
         goToNext(i);
+        secondes = 1;
     })
 
     // direction vers la bonne diapo et init tl for change text
@@ -97,7 +111,7 @@ function caroussel() {
         slider.style.transform = `translateX(${tailleNext})`
 
         checkBtn(i);
-        // changeText(i, tlChangeSlide);
+        changeText(i, tlChangeSlide);
         changeColorLabel(tlChangeSlide);
     }
 
@@ -122,6 +136,9 @@ function caroussel() {
             }
         }
     }
+    // Positionnement de la boite de description 
+    let topBoxDesc = carousselBox.offsetTop
+    $(projectInfoBox).css("top", topBoxDesc);
 
     // Changement du text de description
     function changeText(i, tlChangeSlide) {
@@ -146,11 +163,6 @@ function caroussel() {
                 descProject.innerHTML = "Le projet Numéro 4"
                 break;
 
-            case 4:
-                titreProject.innerHTML = `Titre #5`
-                descProject.innerHTML = "Le projet Numéro 5"
-                break;
-
             default:
                 titreProject.innerHTML = `Error`
                 descProject.innerHTML = `Erreur <a href="">Me contacter</a>`
@@ -159,8 +171,6 @@ function caroussel() {
     }
     /* changement de diapo auto (3sec) si le courssel n'est pas hover 
     + attend la fin de l'intro*/
-    let secondes = -5;
-    let interval = 3;
 
     setInterval(() => {
         secondes++;
@@ -175,6 +185,7 @@ function caroussel() {
     $(carousselBox).mouseout(function() {
         secondes = 1;
     });
+
 
 
     // ========== init du caroussel
