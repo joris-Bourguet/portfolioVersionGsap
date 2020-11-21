@@ -157,8 +157,9 @@ function caroussel() {
                 break;
         }
     }
-    // changement de diapo auto (3sec) si le courssel n'est pas hover
-    let secondes = 0;
+    /* changement de diapo auto (3sec) si le courssel n'est pas hover 
+    + attend la fin de l'intro*/
+    let secondes = -5;
     let interval = 3;
 
     setInterval(() => {
