@@ -134,7 +134,7 @@ secondary
         position: relative;
         display: grid;
         height: 100vh;
-        grid-template: "pageTitle pageTitle contact" "wrapperTitle caroussel caroussel";
+        grid-template: "pageTitle pageTitle usefullLinks" "wrapperTitle caroussel caroussel";
         grid-template-columns: 150px 1fr 1fr;
         grid-template-rows: 150px 1fr;
         .wrapperTitle {
@@ -150,8 +150,8 @@ secondary
             justify-self: center;
             align-self: center;
         }
-        .contact {
-            grid-area: contact;
+        .usefullLinks {
+            grid-area: usefullLinks;
             justify-self: center;
             align-self: center;
         }
@@ -315,7 +315,7 @@ secondary
             min-height: calc(var(8.82px, 1vh)*100);
             grid-template-columns: 1fr;
             grid-template-rows: max-content max-content 300px max-content max-content;
-            grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "contact";
+            grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "usefullLinks";
             .wrapperTitle {
                 writing-mode: unset;
                 text-orientation: unset;

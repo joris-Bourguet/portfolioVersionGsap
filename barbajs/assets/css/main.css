@@ -134,7 +134,7 @@ h6 {
   display: -ms-grid;
   display: grid;
   height: 100vh;
-  grid-template: "pageTitle pageTitle contact" "wrapperTitle caroussel caroussel";
+  grid-template: "pageTitle pageTitle usefullLinks" "wrapperTitle caroussel caroussel";
   -ms-grid-columns: 150px 1fr 1fr;
       grid-template-columns: 150px 1fr 1fr;
   -ms-grid-rows: 150px 1fr;
@@ -162,8 +162,8 @@ h6 {
       align-self: center;
 }
 
-.landing .contact {
-  grid-area: contact;
+.landing .usefullLinks {
+  grid-area: usefullLinks;
   -ms-grid-column-align: center;
       justify-self: center;
   -ms-flex-item-align: center;
@@ -383,7 +383,7 @@ h6 {
     -ms-grid-rows: max-content max-content 300px max-content max-content;
         grid-template-rows: -webkit-max-content -webkit-max-content 300px -webkit-max-content -webkit-max-content;
         grid-template-rows: max-content max-content 300px max-content max-content;
-        grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "contact";
+        grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "usefullLinks";
   }
   .landing .wrapperTitle {
     -webkit-writing-mode: unset;
