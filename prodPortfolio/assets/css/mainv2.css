@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,300&family=Ultra&display=swap");
+/* Color
+primary
+    normal : #01579b
+    light : #4f83cc
+    dark : #002f6c
+secondary 
+    normal : #ffc107
+    light : #fff350
+    dark : #c79100
+*/
+/* font family 
+primary 
+    font : Raleway
+    weight : 400
+accent
+    font : Raleway
+    weight : 300
+    style : italic
+*/
+* {
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: url(http://place-hold.it/1024) no-repeat 50% 50%;
+  background-size: cover;
+}
+
+h1 {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+.toggle-btn {
+  position: fixed;
+  margin: 1.4em;
+  padding: 1em;
+  width: 40px;
+  height: 12px;
+  right: 0;
+  z-index: 1;
+}
+
+.toggle-btn .one {
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #fff;
+}
+
+.toggle-btn .two {
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #fff;
+  margin-top: 12px;
+}
+
+.menu {
+  z-index: 0;
+  position: absolute;
+  background-color: #0a004b;
+  height: 100vh;
+  width: 100%;
+  top: -100%;
+}
+
+.menu .data {
+  padding: 8em 0 0 2em;
+  text-align: left;
+}
+
+.menu .data ul {
+  list-style: none;
+}
+
+.menu .data ul li:first-child {
+  color: #c50426;
+  font-family: "Ultra", serif;
+  font-size: 2rem;
+}
+
+.menu .data ul li:not(:first-child) {
+  color: #ff4f4f;
+  font-size: 4rem;
+}
+
+.menu .data ul a {
+  color: #ff4f4f;
+  text-decoration: none;
+}

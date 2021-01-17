@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <title>Portfolio - Joris Bourguet</title>
+    <link rel="stylesheet" href="assets/dist/main.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+</head>
+
+<body data-barba="wrapper">
+    <div class="wrapper">
+        <div class="toggle-btn">
+            <span class="one"></span>
+            <span class="two"></span>
+        </div>
+
+        <div class="menu">
+            <div class="data">
+                <ul>
+                    <li>Navigation</li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="indexV2.html">Products</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="intro">
+        <div id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="intro-text">
+            <h2 class="hide">
+                <span class="text">Joris Bourguet</span>
+            </h2>
+            <h2 class="hide">
+                <span class="text">Web développer</span>
+            </h2>
+            <h2 class="hide">
+                <span class="text">portfolio .</span>
+            </h2>
+        </div>
+    </div>
+    <div class="sliderAnimation"></div>
+
+    <main data-barba="container" data-barba-namespace="home">
+        <section class="landing">
+            <div class="wrapperTitle">
+                <h1>Portfolio</h1>
+            </div>
+            <div class="pageTitle">
+                <h2>Mes Projets</h2>
+            </div>
+            <div class="usefullLinks">
+
+            </div>
+            <div class="projectInfo">
+                <h3 class="titreProject"></h3>
+                <p class="descProject"></p>
+            </div>
+            <div class="caroussel">
+                <div class="projects">
+                    <div class="projet1 active js-slide wCaroussel"></div>
+                    <div class="projet2 js-slide wCaroussel"></div>
+                    <div class="projet3 js-slide wCaroussel"></div>
+                    <div class="projet4 js-slide wCaroussel"></div>
+                </div>
+                <div class="control">
+                    <button class="left"><span><i class="fas fa-arrow-left"></i></span></button>
+                    <button class="right"><span><i class="fas fa-arrow-right"></i></span></button>
+                </div>
+                <div class="carousselDots">
+                    <div class="js-divRadio">
+                        <input type="radio" name="slide" class="radioSlider" id="dot1" value="0" checked="checked">
+                        <label for="dot1" class="js-label"></label>
+                    </div>
+                    <div class="js-divRadio">
+                        <input type="radio" name="slide" class="radioSlider" id="dot2" value="1">
+                        <label for="dot2" class="js-label"></label>
+                    </div>
+                    <div class="js-divRadio">
+                        <input type="radio" name="slide" class="radioSlider" id="dot3" value="2">
+                        <label for="dot3" class="js-label"></label>
+                    </div>
+                    <div class="js-divRadio">
+                        <input type="radio" name="slide" class="radioSlider" id="dot4" value="3">
+                        <label for="dot4" class="js-label"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script type="module" src="assets/js/app.js"></script>
+
+</body>
+
+</html>
