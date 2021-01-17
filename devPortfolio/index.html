@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <title>Portfolio - Joris Bourguet</title>
-    <link rel="stylesheet" href="assets/dist/main.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>Portfolio - Joris Bourguet</title>
+    <link rel="stylesheet" href="assets/dist/main.min.css">
 </head>
 
 <body data-barba="wrapper">
@@ -71,41 +72,31 @@
 
             </div>
             <div class="projectInfo">
-                <h3 class="titreProject"></h3>
-                <p class="descProject"></p>
+                <h3 class="titreProject">Portfolio</h3>
+                <p class="descProject">Bienvenu sur mon portfolio totalement revisité</p>
             </div>
             <div class="caroussel">
-                <div class="projects">
-                    <div class="projet1 active js-slide wCaroussel"></div>
-                    <div class="projet2 js-slide wCaroussel"></div>
-                    <div class="projet3 js-slide wCaroussel"></div>
-                    <div class="projet4 js-slide wCaroussel"></div>
-                </div>
-                <div class="control">
-                    <button class="left"><span><i class="fas fa-arrow-left"></i></span></button>
-                    <button class="right"><span><i class="fas fa-arrow-right"></i></span></button>
-                </div>
-                <div class="carousselDots">
-                    <div class="js-divRadio">
-                        <input type="radio" name="slide" class="radioSlider" id="dot1" value="0" checked="checked">
-                        <label for="dot1" class="js-label"></label>
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide slide1" data-hash="Portfolio_vuejs"></div>
+                        <div class="swiper-slide slide2" data-hash="pole-mecanique-karting-ales"></div>
+                        <div class="swiper-slide slide3" data-hash="hotel-equipe-sauze"></div>
+                        <div class="swiper-slide slide4" data-hash="websitedev"></div>
                     </div>
-                    <div class="js-divRadio">
-                        <input type="radio" name="slide" class="radioSlider" id="dot2" value="1">
-                        <label for="dot2" class="js-label"></label>
-                    </div>
-                    <div class="js-divRadio">
-                        <input type="radio" name="slide" class="radioSlider" id="dot3" value="2">
-                        <label for="dot3" class="js-label"></label>
-                    </div>
-                    <div class="js-divRadio">
-                        <input type="radio" name="slide" class="radioSlider" id="dot4" value="3">
-                        <label for="dot4" class="js-label"></label>
-                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
                 </div>
             </div>
         </section>
     </main>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script type="module" src="assets/js/app.js"></script>
 

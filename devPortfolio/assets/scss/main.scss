@@ -178,73 +178,34 @@ secondary
             grid-area: caroussel;
             background-color: rgb(220, 220, 220);
             overflow-x: hidden;
-            .wCaroussel {
-                // width = (width project / nb Project)
-                width: 100%;
-            }
-            .projects {
+            .swiper-container {
                 height: 100%;
-                //width = nbProject * 100
-                width: 400%;
-                display: flex;
-                transition: transform 1s ease-in-out;
-                .projet1 {
-                    background: url(../images/testLandingPageLeft.jpg) center center;
+                width: 100%;
+                .swiper-slide {
                     background-size: cover;
-                }
-                .projet2 {
-                    background: url(../images/poleMecaLanding.jpg) center center;
-                    background-size: cover;
-                }
-                .projet3 {
-                    background: url(../images/websitedevLanding.jpg) center center;
-                    background-size: cover;
-                }
-                .projet4 {
-                    background: url(../images/hotelLequipeLanding.jpg) center center;
-                    background-size: cover;
-                }
-            }
-            .control {
-                position: absolute;
-                display: flex;
-                justify-content: space-between;
-                left: 8%;
-                right: 8%;
-                top: 50%;
-                button {
-                    background: none;
-                    border: 1px solid black;
-                    padding: 1em;
-                    border-radius: 100%;
-                    z-index: 1;
-                    cursor: pointer;
-                    i {
-                        font-size: 1.5em;
+                    background-position: center;
+                    &.slide1 {
+                        background-image: url(../images/testLandingPageLeft.jpg);
+                    }
+                    &.slide2 {
+                        background-image: url(../images/poleMecaLanding.jpg);
+                    }
+                    &.slide3 {
+                        background-image: url(../images/hotelLequipeLanding.jpg);
+                    }
+                    &.slide4 {
+                        background-image: url(../images/websitedevLanding.jpg);
+                    }
+                    img {
+                        height: 100%;
                     }
                 }
-            }
-            .carousselDots {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                gap: 2em;
-                left: 8%;
-                right: 8%;
-                top: 93%;
-                div {
-                    background-color: $color-secondary-dark;
-                    display: flex;
-                    z-index: 0;
-                    border-radius: 5px;
-                    input {
-                        display: none;
-                    }
-                    label {
-                        border-radius: 5px;
-                        z-index: 1;
-                        cursor: pointer;
-                    }
+                .swiper-pagination-bullet {
+                    background-color: $color-primary;
+                }
+                .swiper-button-prev,
+                .swiper-button-next {
+                    color: $color-primary;
                 }
             }
         }
@@ -254,7 +215,7 @@ secondary
         background: #000;
         position: fixed;
         //change top to 0 for see Open Browser and -100% for skip=>
-        top: 0;
+        top: -100%;
         left: 0;
         width: 100%;
         height: 100%;

@@ -207,105 +207,49 @@ h6 {
   overflow-x: hidden;
 }
 
-.landing .caroussel .wCaroussel {
+.landing .caroussel .swiper-container {
+  height: 100%;
   width: 100%;
 }
 
-.landing .caroussel .projects {
+.landing .caroussel .swiper-container .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.landing .caroussel .swiper-container .swiper-slide.slide1 {
+  background-image: url(../images/testLandingPageLeft.jpg);
+}
+
+.landing .caroussel .swiper-container .swiper-slide.slide2 {
+  background-image: url(../images/poleMecaLanding.jpg);
+}
+
+.landing .caroussel .swiper-container .swiper-slide.slide3 {
+  background-image: url(../images/hotelLequipeLanding.jpg);
+}
+
+.landing .caroussel .swiper-container .swiper-slide.slide4 {
+  background-image: url(../images/websitedevLanding.jpg);
+}
+
+.landing .caroussel .swiper-container .swiper-slide img {
   height: 100%;
-  width: 400%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transition: -webkit-transform 1s ease-in-out;
-  transition: -webkit-transform 1s ease-in-out;
-  transition: transform 1s ease-in-out;
-  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
-.landing .caroussel .projects .projet1 {
-  background: url(../images/testLandingPageLeft.jpg) center center;
-  background-size: cover;
+.landing .caroussel .swiper-container .swiper-pagination-bullet {
+  background-color: #0a004b;
 }
 
-.landing .caroussel .projects .projet2 {
-  background: url(../images/poleMecaLanding.jpg) center center;
-  background-size: cover;
-}
-
-.landing .caroussel .projects .projet3 {
-  background: url(../images/websitedevLanding.jpg) center center;
-  background-size: cover;
-}
-
-.landing .caroussel .projects .projet4 {
-  background: url(../images/hotelLequipeLanding.jpg) center center;
-  background-size: cover;
-}
-
-.landing .caroussel .control {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  left: 8%;
-  right: 8%;
-  top: 50%;
-}
-
-.landing .caroussel .control button {
-  background: none;
-  border: 1px solid black;
-  padding: 1em;
-  border-radius: 100%;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.landing .caroussel .control button i {
-  font-size: 1.5em;
-}
-
-.landing .caroussel .carousselDots {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 2em;
-  left: 8%;
-  right: 8%;
-  top: 93%;
-}
-
-.landing .caroussel .carousselDots div {
-  background-color: #c50426;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 0;
-  border-radius: 5px;
-}
-
-.landing .caroussel .carousselDots div input {
-  display: none;
-}
-
-.landing .caroussel .carousselDots div label {
-  border-radius: 5px;
-  z-index: 1;
-  cursor: pointer;
+.landing .caroussel .swiper-container .swiper-button-prev,
+.landing .caroussel .swiper-container .swiper-button-next {
+  color: #0a004b;
 }
 
 .intro {
   background: #000;
   position: fixed;
-  top: 0;
+  top: -100%;
   left: 0;
   width: 100%;
   height: 100%;
