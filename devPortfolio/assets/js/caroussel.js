@@ -45,7 +45,7 @@ function caroussel() {
         },
     })
 
-    let title = {
+    let allProject = {
         portfolio: {
             "hash": "#Portfolio_vuejs",
             "titre": "Portfolio",
@@ -68,7 +68,7 @@ function caroussel() {
         }
     }
     if (!location.hash) {
-        location.hash = title.portfolio.hash
+        location.hash = allProject.portfolio.hash
     } else {
         changeInfo(location.hash)
     }
@@ -79,20 +79,20 @@ function caroussel() {
     })
 
     function changeInfo(hash) {
-        if (hash == title.portfolio.hash) {
-            projectTitle.textContent = title.portfolio.titre
-            projectDescription.textContent = title.portfolio.description
-        } else if (hash == title.pole_mecanique_karting_ales.hash) {
-            projectTitle.textContent = title.pole_mecanique_karting_ales.titre
-            projectDescription.textContent = title.pole_mecanique_karting_ales.description
-        } else if (hash == title.hotel_equipe_sauze.hash) {
-            projectTitle.textContent = title.hotel_equipe_sauze.titre
-            projectDescription.textContent = title.hotel_equipe_sauze.description
-        } else if (hash == title.websitedev.hash) {
-            projectTitle.textContent = title.websitedev.titre
-            projectDescription.textContent = title.websitedev.description
+        if (hash == allProject.portfolio.hash) {
+            projectTitle.textContent = allProject.portfolio.titre
+            projectDescription.textContent = allProject.portfolio.description
+        } else if (hash == allProject.pole_mecanique_karting_ales.hash) {
+            projectTitle.textContent = allProject.pole_mecanique_karting_ales.titre
+            projectDescription.textContent = allProject.pole_mecanique_karting_ales.description
+        } else if (hash == allProject.hotel_equipe_sauze.hash) {
+            projectTitle.textContent = allProject.hotel_equipe_sauze.titre
+            projectDescription.textContent = allProject.hotel_equipe_sauze.description
+        } else if (hash == allProject.websitedev.hash) {
+            projectTitle.textContent = allProject.websitedev.titre
+            projectDescription.textContent = allProject.websitedev.description
         } else {
-            location.hash = title.portfolio.hash
+            location.hash = allProject.portfolio.hash
         }
     }
 
