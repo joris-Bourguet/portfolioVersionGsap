@@ -160,6 +160,13 @@ h6 {
   -ms-grid-row-align: center;
       align-self: center;
 }
+.landing .usefullLinks > * {
+  text-decoration: none;
+}
+.landing .usefullLinks > * i {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
 .landing .projectInfo {
   position: absolute;
   right: 0;

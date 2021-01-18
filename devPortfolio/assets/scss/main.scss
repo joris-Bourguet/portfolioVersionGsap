@@ -154,6 +154,13 @@ secondary
             grid-area: usefullLinks;
             justify-self: center;
             align-self: center;
+            &>* {
+                text-decoration: none;
+                i {
+                    padding: 1rem;
+                    font-size: 1.5rem;
+                }
+            }
         }
         .projectInfo {
             position: absolute;
