@@ -1,8 +1,9 @@
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,300&family=Ultra&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
     /* Font Rules
 
     font-family: 'Raleway', sans-serif;
-    font-family: 'Ultra', serif;
+    font-family: 'Yusei Magic', sans-serif;
 */
     /* font family 
 primary 
@@ -16,8 +17,8 @@ accent
     
     $font-primary: 'Raleway',
     sans-serif;
-    $font-secondary: 'Ultra',
-    serif;
+    $font-secondary: 'Yusei Magic',
+    sans-serif;
     /* Color
 primary
     normal : #01579b
@@ -72,6 +73,16 @@ secondary
     }
     
     .wrapper {
+        .mouseCircle {
+            z-index: 1000;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            border: 2px solid black;
+            position: absolute;
+            transform: translate(-50%, -30%);
+            pointer-events: none;
+        }
         .toggle-btn {
             display: block;
             position: fixed;
@@ -105,24 +116,35 @@ secondary
             width: 100%;
             overflow: hidden;
             .data {
+                height: 100%;
                 padding: 8em 0 0 2em;
                 text-align: left;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
                 ul {
                     list-style: none;
-                    li:first-child {
-                        color: $color-secondary-dark;
-                        font-family: $font-secondary;
-                        font-size: 2rem;
-                    }
-                    li:not(:first-child) {
+                    li {
                         color: $color-secondary;
-                        font-size: 4rem;
+                        font-size: 5rem;
+                        letter-spacing: 5px;
+                        text-transform: uppercase;
                     }
                     a {
                         color: $color-secondary;
                         text-decoration: none;
                         &:hover {
                             color: $color-secondary-dark;
+                        }
+                    }
+                }
+                .usefull-links-menu {
+                    display: flex;
+                    padding: 0 0 0 40px;
+                    a {
+                        margin: 10px;
+                        i {
+                            font-size: 1.5em;
                         }
                     }
                 }
@@ -157,6 +179,7 @@ secondary
             &>* {
                 text-decoration: none;
                 i {
+                    color: black;
                     padding: 1rem;
                     font-size: 1.5rem;
                 }
