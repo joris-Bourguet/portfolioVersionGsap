@@ -119,46 +119,31 @@ h6 {
 
 .landing {
   position: relative;
-  display: -ms-grid;
   display: grid;
   height: 100vh;
-  -ms-grid-rows: auto;
-      grid-template: "pageTitle pageTitle usefullLinks" "wrapperTitle caroussel caroussel";
-  -ms-grid-columns: 150px 1fr 1fr;
+  grid-template: "pageTitle pageTitle usefullLinks" "wrapperTitle caroussel caroussel";
   grid-template-columns: 150px 1fr 1fr;
   grid-template-rows: 150px 1fr;
 }
 .landing .wrapperTitle {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: wrapperTitle;
   -ms-writing-mode: tb-lr;
       writing-mode: vertical-lr;
   -webkit-text-orientation: upright;
           text-orientation: upright;
   text-transform: uppercase;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
   text-align: center;
 }
 .landing .pageTitle {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: pageTitle;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-grid-row-align: center;
-      align-self: center;
+  justify-self: center;
+  align-self: center;
 }
 .landing .usefullLinks {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
   grid-area: usefullLinks;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-grid-row-align: center;
-      align-self: center;
+  justify-self: center;
+  align-self: center;
 }
 .landing .usefullLinks > * {
   text-decoration: none;
@@ -185,9 +170,6 @@ h6 {
   margin: 0;
 }
 .landing .caroussel {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
   position: relative;
   z-index: 0;
   grid-area: caroussel;
@@ -287,13 +269,10 @@ h6 {
 @media only screen and (max-width: 1024px) {
   .landing {
     min-height: calc(var(8.82px, 1vh)*100);
-    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-    -ms-grid-rows: -webkit-max-content -webkit-max-content 300px -webkit-max-content -webkit-max-content;
-    -ms-grid-rows: max-content max-content 300px max-content max-content;
     grid-template-rows: -webkit-max-content -webkit-max-content 300px -webkit-max-content -webkit-max-content;
     grid-template-rows: max-content max-content 300px max-content max-content;
-        grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "usefullLinks";
+    grid-template-areas: "wrapperTitle" "pageTitle" "caroussel" "descProject" "usefullLinks";
   }
   .landing .wrapperTitle {
     -ms-writing-mode: unset;
@@ -305,30 +284,6 @@ h6 {
     position: unset;
     width: unset;
     grid-area: descProject;
-  }
-  .landing .wrapperTitle {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  .landing .pageTitle {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-  .landing .usefullLinks {
-    -ms-grid-row: 5;
-    -ms-grid-column: 1;
-  }
-  .landing .caroussel {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-  }
-}
-@media only screen and (max-width: 1024px){
-  .landing .projectInfo {
-    -ms-grid-row: 4;
-    -ms-grid-column: 1;
   }
 }
 /*=========================== Responsive menu ===========================*/
